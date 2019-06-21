@@ -6,9 +6,10 @@ public class Country {
     private String nativeName;
 
     public Country() {
+
     }
 
-    public Country(String capital, Long population, String nativeName) {
+    Country(String capital, Long population, String nativeName) {
         this.capital = capital;
         this.population = population;
         this.nativeName = nativeName;
@@ -38,27 +39,4 @@ public class Country {
         return Objects.hash(capital, population, nativeName);
     }
 
-    public String getCapital() {
-        return capital;
-    }
-
-    public void setCapital(String capital) {
-        this.capital = capital;
-    }
-
-    public Long getPopulation() {
-        return population;
-    }
-
-    public void setPopulation(Long population) {
-        this.population = population;
-    }
-
-    public String getNativeName() {
-        return nativeName;
-    }
-
-    public void setNativeName(String nativeName) {
-        this.nativeName = nativeName;
-    }
 }

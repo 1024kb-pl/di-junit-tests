@@ -21,12 +21,16 @@ public class User {
         return id;
     }
 
-    String getLogin() {
+    public String getLogin() {
         return login;
     }
 
-    String getPassword() {
+    public String getPassword() {
         return password;
+    }
+
+    public Country getCountry() {
+        return country;
     }
 
     @Override
@@ -35,6 +39,7 @@ public class User {
                 "id=" + id +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
+                ", country=" + country +
                 '}';
     }
 
@@ -45,11 +50,12 @@ public class User {
         User user = (User) o;
         return Objects.equals(id, user.id) &&
                 Objects.equals(login, user.login) &&
-                Objects.equals(password, user.password);
+                Objects.equals(password, user.password) &&
+                Objects.equals(country, user.country);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, login, password);
+        return Objects.hash(id, login, password, country);
     }
 }

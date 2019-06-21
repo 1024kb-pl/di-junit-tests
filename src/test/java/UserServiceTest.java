@@ -61,4 +61,20 @@ public class UserServiceTest {
         userService.removeUser(1L);
     }
 
+    @Test
+    public void shouldAddDefaultCountryToUserWhenRestApiDoesntReply() {
+        // given
+        UserService userService = new UserService();
+
+        UserDTO userDTO = new UserDTO("pablo", "pablo123", POLAND);
+        User expectedUser = new User("pablo", "pablo123", UserService.DEFAULT_COUNTRY);
+        expectedUser.setId(0L);
+
+        // when
+        User resultUser = userService.createUser(userDTO);
+
+        // then
+        Assert.assertEquals(expectedUser, resultUser);
+    }
+
 }
