@@ -11,12 +11,13 @@ class CountryService {
     private static final String COUNTRY_REST_API_URL = "https://restcountries.eu/rest/v2/name/";
     private final RestTemplate restTemplate = new RestTemplate();
 
-    Country getCountryByName(String name) {
+    public Country getCountryByName(String name) {
         ResponseEntity<List<Country>> countries = restTemplate.exchange(
                 buildRequestURL(name),
                 HttpMethod.GET,
                 null,
-                new ParameterizedTypeReference<List<Country>>(){});
+                new ParameterizedTypeReference<List<Country>>() {
+                });
 
         return Optional.ofNullable(countries.getBody())
                 .orElse(Collections.emptyList()).stream()
