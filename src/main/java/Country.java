@@ -15,6 +15,30 @@ public class Country {
         this.nativeName = nativeName;
     }
 
+    public String getCapital() {
+        return capital;
+    }
+
+    public void setCapital(String capital) {
+        this.capital = capital;
+    }
+
+    public Long getPopulation() {
+        return population;
+    }
+
+    public void setPopulation(Long population) {
+        this.population = population;
+    }
+
+    public String getNativeName() {
+        return nativeName;
+    }
+
+    public void setNativeName(String nativeName) {
+        this.nativeName = nativeName;
+    }
+
     @Override
     public String toString() {
         return "Country{" +

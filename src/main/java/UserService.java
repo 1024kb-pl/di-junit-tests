@@ -7,10 +7,9 @@ class UserService {
     User createUser(UserDTO userDTO) {
         userValidator.validate(userDTO);
 
-        //Country country = getCountry(userDTO.getCountry());
+        Country country = getCountry(userDTO.getCountry());
 
-       // User user = convertToUser(userDTO, country);
-        User user = new User(userDTO.getLogin(), userDTO.getPassword(), new Country());
+        User user = convertToUser(userDTO, country);
 
         return userDao.create(user);
     }
