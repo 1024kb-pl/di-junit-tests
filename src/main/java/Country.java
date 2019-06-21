@@ -5,9 +5,6 @@ public class Country {
     private Long population;
     private String nativeName;
 
-    public Country() {
-    }
-
     public Country(String capital, Long population, String nativeName) {
         this.capital = capital;
         this.population = population;
