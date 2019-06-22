@@ -4,17 +4,17 @@ import org.junit.Test;
 public class UserServiceTest {
     private final String POLAND = "poland";
     private final Country POLAND_COUNTRY = new Country("Warsaw", 38437239L, "Polska");
-    private final CountryRestService restServiceWhichReturnsPolandEverytime = new CountryRestService() {
-        @Override
-        public Country getCountryByName(String name) {
-            return POLAND_COUNTRY;
-        }
-    };
+    private final CountryRestService restServiceWhichReturnsPolandEverytime = name -> POLAND_COUNTRY;
 
     @Test
     public void shouldCorrectAddNewUser() {
         // given
-        UserService userService = new UserService(new UserDao(), new UserValidator(), restServiceWhichReturnsPolandEverytime);
+        UserService userService = new UserService(new UserDao(), new UserValidator(), new CountryRestService() {
+            @Override
+            public Country getCountryByName(String name) {
+                return POLAND_COUNTRY;
+            }
+        });
 
         UserDTO userDTO = new UserDTO("pablo", "pablo123", POLAND);
         User expectedUser = new User("pablo", "pablo123", POLAND_COUNTRY);
